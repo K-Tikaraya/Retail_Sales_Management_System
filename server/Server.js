@@ -1,24 +1,26 @@
 // backend/server.js
 const express = require('express');
-require('dotenv').config();
-const mongoose = require('mongoose');
 const cors = require('cors');
+
+// 1. Load Environment Variables FIRST
 require('dotenv').config();
+
+// 2. Import Database Connection
+// (Note: You named this file importData.js, but it's acting as a DB connection file now)
+const connectDB = require('./src/importData');
 
 const app = express();
 
-// 1. Middleware (Allows Frontend to talk to Backend)
+// 3. Middleware
 app.use(cors());
 app.use(express.json());
 
-// 2. Database Connection
-mongoose.connect('mongodb://localhost:27017/truestate_assignment')
-.then(() => console.log("✅ MongoDB Connected"))
-.catch(err => console.error("❌ Connection Error:", err));
+// 4. Connect to Database
+// We call this AFTER dotenv.config() so process.env.MONGO_URI is ready
+connectDB();
 
-// 3. Routes (Connects the URL to your Logic)
+// 5. Routes
 app.use('/api/sales', require('./src/routes/salesRoutes'));
 
-// 4. Start Server
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

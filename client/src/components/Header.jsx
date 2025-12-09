@@ -3,8 +3,8 @@ import { Search } from 'lucide-react';
 
 const Header = ({ searchValue, onSearchChange }) => {
   return (
-    <header className="flex justify-end items-center px-6 py-4 bg-white border-b border-gray-200">
-      <div className="relative w-80">
+    <header className="flex justify-start items-center px-6 py-4 bg-white border-b border-gray-200">
+      <div className="relative w-96">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
         <input 
           type="text" 

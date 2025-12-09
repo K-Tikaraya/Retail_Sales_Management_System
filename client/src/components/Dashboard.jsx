@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import FilterPanel from '../components/Filterpanel';
 import SalesTable from '../components/SalesTable';
 import Pagination from '../components/Pagination';
+import StatsCards from '../components/StatsCards';
 
 
 const Dashboard = () => {
@@ -54,12 +55,7 @@ const Dashboard = () => {
         };
 
         // The Call: "Hello Backend, give me sales matching these params"
-        const response = await axios.get('http://localhost:5000/api/sales', { params });
-
-     console.log("Full Response:", response.data);
-      console.log("Sales Data:", response.data.sales);
-      console.log("First Record:", response.data.sales[0]);
-      console.log("Second Record:", response.data.sales[1]);
+        const response = await axios.get('https://retails-backend.onrender.com/api/sales', { params });
 
         // The Response: Update our state with what the backend sent
         setData(response.data.sales);
@@ -105,6 +101,15 @@ const Dashboard = () => {
           <span>Found <span className="font-bold text-gray-900">{totalRecords}</span> records. Showing Page {currentPage} of {totalPages}.</span>
         )}
       </div>
+
+
+      <StatsCards data={data} />
+
+      {/* Info Text */}
+      <div style={{ color: '#666', fontSize: '14px' }}>
+         {/* ... (keep your existing loading/count text) ... */}
+      </div>
+
 
       {/* Data Table - Now receiving REAL data */}
       <SalesTable data={data} />

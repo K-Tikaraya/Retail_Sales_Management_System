@@ -4,6 +4,8 @@ const SaleSchema = new mongoose.Schema({
     TransactionID: { type: String, unique: true },
     ProductID: { type: String, index: true },
 
+    DiscountAmount: { type: Number },
+
 // --- 1. SEARCH FIELDS (Case-Insensitive & Performant) [cite: 51-58] ---
     CustomerName: { type: String, index: true }, 
     PhoneNumber: { type: String, index: true }, 
