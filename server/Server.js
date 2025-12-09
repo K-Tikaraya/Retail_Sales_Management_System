@@ -23,8 +23,8 @@ connectDB();
 app.use('/api/sales', require('./src/routes/salesRoutes'));
 
 // 6. Add Tag Route (Ensure this line exists if you want the dropdown to work!)
-// If your salesRoutes file already includes '/tags', you don't need this separate line.
-// But based on our previous steps, it's safer to rely on salesRoutes.
+
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+

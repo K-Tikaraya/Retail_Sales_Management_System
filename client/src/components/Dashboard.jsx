@@ -55,7 +55,8 @@ const Dashboard = () => {
         };
 
         // The Call: "Hello Backend, give me sales matching these params"
-        const response = await axios.get('http://localhost:5000/api/sales', { params });
+// Use the variable from .env
+const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/sales`, { params });
 
         // The Response: Update our state with what the backend sent
         setData(response.data.sales);

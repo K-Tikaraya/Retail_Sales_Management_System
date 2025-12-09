@@ -15,22 +15,22 @@ const getValue = (row, targetKey) => {
 };
 
 const importData = async () => {
-    console.log("🧹 Wiping old database...");
+    console.log("Wiping old database...");
     await Sale.deleteMany({});
-    console.log("✅ Database cleared. Starting fresh import...");
+    console.log("Database cleared. Starting fresh import...");
 
     let salesBatch = [];
     let counter = 0;
     
     // Check if file exists
     if (!fs.existsSync('dataset.csv')) {
-        console.error("❌ 'dataset.csv' not found! Make sure it is in the 'backend' folder.");
+        console.error(" 'dataset.csv' not found! Make sure it is in the 'backend' folder.");
         process.exit(1);
     }
 
     const stream = fs.createReadStream('dataset.csv').pipe(csv());
 
-    console.log("⏳ Reading CSV and mapping columns...");
+    console.log("Reading CSV and mapping columns...");
 
     for await (const row of stream) {
         // Safe Number Parsing
@@ -93,7 +93,7 @@ const importData = async () => {
             await Sale.insertMany(salesBatch);
             salesBatch = [];
             counter += 1000;
-            console.log(`🚀 Imported ${counter} rows...`);
+            console.log(`Imported ${counter} rows...`);
         }
     }
 
@@ -102,7 +102,7 @@ const importData = async () => {
         await Sale.insertMany(salesBatch);
     }
 
-    console.log("🎉 SUCCESS: All data imported with new columns and calculations!");
+    console.log("SUCCESS: All data imported with new columns and calculations!");
     process.exit();
 };
 

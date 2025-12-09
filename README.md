@@ -60,8 +60,8 @@ Pagination divides sales data into manageable pages to improve performance and u
 
 3. Create a `.env` file in the server directory with:
    ```
-   MONGO_URI=mongodb://localhost:27017/retail_sales
-   PORT=5000
+   MONGO_URI= your mongodb atlas string
+   PORT=your port
    ```
 
 4. Start the server:
@@ -69,7 +69,7 @@ Pagination divides sales data into manageable pages to improve performance and u
    npm run dev
    ```
 
-   The server will run on `http://localhost:5000`
+
 
 ### Frontend Setup
 
@@ -88,7 +88,7 @@ Pagination divides sales data into manageable pages to improve performance and u
    npm run dev
    ```
 
-   The frontend will run on `http://localhost:5173`
+  
 
 ### Running Both
 
@@ -96,4 +96,4 @@ Open two terminal windows:
 - Terminal 1: Run backend server from `server` directory
 - Terminal 2: Run frontend from `client/retail_management` directory
 
-Access the application at `http://localhost:5173` in your browser.
+

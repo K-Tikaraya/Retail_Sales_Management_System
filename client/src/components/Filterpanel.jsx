@@ -10,7 +10,7 @@ const FilterPanel = ({ filters, onFilterChange, onReset }) => {
   useEffect(() => {
     const fetchTags = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/sales/tags');
+const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/sales/tags`);
         setTagsList(res.data);
       } catch (err) {
         console.error("Failed to load tags:", err);
