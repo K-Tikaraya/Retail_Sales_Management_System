@@ -55,7 +55,7 @@ const Dashboard = () => {
         };
 
         // The Call: "Hello Backend, give me sales matching these params"
-        const response = await axios.get('https://retails-backend.onrender.com/api/sales', { params });
+        const response = await axios.get('http://localhost:5000/api/sales', { params });
 
         // The Response: Update our state with what the backend sent
         setData(response.data.sales);
